@@ -1,7 +1,7 @@
 import {SafeAreaView, ScrollView, View} from 'react-native'
 import {Stack, useRouter} from "expo-router";
-import {COLORS, SIZES} from "../constants";
-import {ScreenHeaderBtn, Welcome} from "../components";
+import {COLORS, icons, images, SIZES} from "../constants";
+import {Nearbyjobs, Popularjobs, ScreenHeaderBtn, Welcome} from "../components";
 
 
 const Home = () => {
@@ -13,10 +13,12 @@ const Home = () => {
                 headerStyle: {backgroundColor: COLORS.lightWhite},
                 headerShadowVisible: false,
                 headerLeft: () => (
-                    <ScreenHeaderBtn/>
+                    <ScreenHeaderBtn dimension={"60%"} iconUrl={icons.menu} handlePress={() => {
+                    }}/>
                 ),
                 headerRight: () => (
-                    <ScreenHeaderBtn/>
+                    <ScreenHeaderBtn dimension={"100%"} iconUrl={images.profile} handlePress={() => {
+                    }}/>
                 ),
                 headerTitle: "Bubek"
             }
@@ -24,6 +26,8 @@ const Home = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{flex: 1, padding: SIZES.medium}}>
                     <Welcome/>
+                    <Popularjobs/>
+                    <Nearbyjobs/>
                 </View>
             </ScrollView>
         </SafeAreaView>
