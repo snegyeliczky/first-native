@@ -1,16 +1,20 @@
 import {StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
-    input: {
-        height: 40,
-        margin: 8,
-        borderWidth: 1,
-        padding: 10,
-        width: "100%"
-    },
     container: {
+        marginTop: 20,
         display: "flex",
         alignItems: "center",
         gap: 10
-    }
+    },
+    buttonContainer: {
+        flexDirection: "row",
+        gap: 20
+    },
 });
+
+export const profitStyle = StyleSheet.create((profit: number) => ({
+    fontFamily: "DMRegular",
+    color: profit > 0 ? "green" : "red",
+    fontSize: 23
+}))
