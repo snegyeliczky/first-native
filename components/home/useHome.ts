@@ -47,6 +47,7 @@ const UseHome = () => {
 
     return {
         editLastExchange,
+        getExchangeRate,
         lastExchange,
         exchangeRate,
     };
