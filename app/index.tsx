@@ -1,9 +1,9 @@
 import {SafeAreaView, ScrollView, View} from 'react-native'
 import {Stack, useRouter} from "expo-router";
 import {COLORS, icons, images, SIZES} from "../constants";
-import {ScreenHeaderBtn, Welcome} from "../components";
+import {ScreenHeaderBtn, Home} from "../components";
 
-const Home = () => {
+const Index = () => {
 
     const router = useRouter()
 
@@ -25,11 +25,11 @@ const Home = () => {
             }/>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={{flex: 1, padding: SIZES.medium}}>
-                    <Welcome/>
+                    <Home/>
                 </View>
             </ScrollView>
         </SafeAreaView>
     )
 }
 
-export default Home
+export default Index
