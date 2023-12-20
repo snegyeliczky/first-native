@@ -1,11 +1,9 @@
 import {SafeAreaView, ScrollView, View} from 'react-native'
-import {Stack, useRouter} from "expo-router";
+import {Stack} from "expo-router";
 import {COLORS, icons, images, SIZES} from "../constants";
 import {ScreenHeaderBtn, Home} from "../components";
 
 const Index = () => {
-
-    const router = useRouter()
 
     return (
         <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite}}>

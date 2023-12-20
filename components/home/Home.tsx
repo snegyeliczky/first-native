@@ -10,7 +10,7 @@ const Home = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={profitStyle(profit)}>{profit}</Text>
+            {!isNaN(profit) && <Text style={profitStyle(profit)}>{profit}</Text>}
             <Text>Your last change: {lastExchange}</Text>
             <Text>current: {exchangeRate}</Text>
             <View style={styles.buttonContainer}>
