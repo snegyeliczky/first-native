@@ -13,11 +13,11 @@ const Index = () => {
                 headerStyle: {backgroundColor: COLORS.lightWhite},
                 headerShadowVisible: false,
                 headerLeft: () => (
-                    <ScreenHeaderBtn dimension={"60%"} iconUrl={icons.menu} handlePress={(event) => {
+                    <ScreenHeaderBtn dimension={"60%"} iconUrl={icons.menu} handlePress={() => {
                     }}/>
                 ),
                 headerRight: () => (
-                    <ScreenHeaderBtn dimension={"100%"} iconUrl={images.profile} handlePress={(event) => {
+                    <ScreenHeaderBtn dimension={"100%"} iconUrl={images.profile} handlePress={() => {
                     }}/>
                 ),
                 headerTitle: "Bubek"
