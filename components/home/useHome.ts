@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {change} from "../../constants/storageKey";
 import {FIXER_ACCESS_KEY} from "@env"
+import axios from "axios";
 
 const UseHome = () => {
 
@@ -40,9 +41,20 @@ const UseHome = () => {
         }
     }
 
+    const sendNoti = () => {
+        axios.post("https://app.nativenotify.com/api/indie/notification", {
+                subID: '1',
+                appId: 17009,
+                appToken: 'r5NfuRJ9LQdYHOcFug0WFP',
+                title: 'put your push notification title here as a string',
+                message: 'put your push notification message here as a string'
+            }
+        )
+    }
+
     useEffect(() => {
         getLastExchange()
-        getExchangeRate()
+        // getExchangeRate()
     }, []);
 
     return {
@@ -50,6 +62,7 @@ const UseHome = () => {
         getExchangeRate,
         lastExchange,
         exchangeRate,
+        sendNoti
     };
 };
 

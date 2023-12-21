@@ -8,6 +8,20 @@
       "expo-router"
     ],
     "name": "first-native",
-    "slug": "first-native"
+    "slug": "first-native",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "6bf315a4-2a98-472c-8ae3-e5b771d19145"
+      }
+    },
+    "android": {
+      "package": "com.saczky.firstnative"
+    },
+    "ios": {
+      "bundleIdentifier": "y"
+    }
   }
 }

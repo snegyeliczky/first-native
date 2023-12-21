@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
 });
 
 export const profitStyle = StyleSheet.create((profit: number) => ({
-    fontFamily: "DMRegular",
     color: profit > 0 ? "green" : "red",
     fontSize: 23
 }))
