@@ -1,6 +1,6 @@
-import {SafeAreaView, ScrollView, Text, View} from 'react-native'
+import {SafeAreaView, ScrollView, View} from 'react-native'
 import {Stack} from "expo-router";
-import {COLORS, icons, images, SIZES} from "../constants";
+import {COLORS, icons, SIZES} from "../constants";
 import {ScreenHeaderBtn, Home} from "../components";
 import registerNNPushToken, {registerIndieID} from 'native-notify';
 import {useEffect} from "react";
