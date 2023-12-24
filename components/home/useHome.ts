@@ -1,13 +1,45 @@
 import {useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {change} from "../../constants/storageKey";
-import {FIXER_ACCESS_KEY} from "@env"
+import { change } from "../../constants/storageKey";
+import { FIXER_ACCESS_KEY } from "@env";
 import * as Notifications from "expo-notifications";
+import * as TaskManager from "expo-task-manager";
+import * as BackgroundFetch from "expo-background-fetch";
+export const BACKGROUND_TASK_NAME = "first-task";
 
 const UseHome = () => {
   const accessKey = FIXER_ACCESS_KEY;
   const [lastExchange, setLastExchange] = useState<string>();
   const [exchangeRate, setExchangeRate] = useState();
+
+  TaskManager.defineTask(BACKGROUND_TASK_NAME, async ({ error }) => {
+    if (error) {
+      console.error("Background task error:", error);
+      return;
+    }
+    const now = Date.now();
+
+    console.log(
+      `Got background fetch call at date: ${new Date(now).toISOString()}`
+    );
+    sendNoti();
+    return BackgroundFetch.BackgroundFetchResult.NewData;
+  });
+
+  async function registerBackgroundFetchAsync() {
+    BackgroundFetch.setMinimumIntervalAsync(1);
+    console.log("rgister");
+    return BackgroundFetch.registerTaskAsync(BACKGROUND_TASK_NAME, {
+      minimumInterval: 1 * 60,
+      stopOnTerminate: false, // android only,
+      startOnBoot: true, // android only
+    });
+  }
+
+  async function unregisterBackgroundFetchAsync() {
+    console.log("delet register");
+    return BackgroundFetch.unregisterTaskAsync(BACKGROUND_TASK_NAME);
+  }
 
   const getLastExchange = async () => {
     try {
@@ -64,6 +96,8 @@ const UseHome = () => {
     lastExchange,
     exchangeRate,
     sendNoti,
+    registerBackgroundFetchAsync,
+    unregisterBackgroundFetchAsync,
   };
 };
 
