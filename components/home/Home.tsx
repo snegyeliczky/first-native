@@ -1,26 +1,32 @@
-import {View, Text, Button} from 'react-native'
-
-import {profitStyle, styles} from "./styles";
+import { View, Text, Button } from "react-native";
+import { profitStyle, styles } from "./styles";
 import useHome from "./useHome";
 
 const Home = () => {
+  const {
+    lastExchange,
+    editLastExchange,
+    exchangeRate,
+    getExchangeRate,
+    sendNoti,
+  } = useHome();
+  const profit = Number(exchangeRate) - Number(lastExchange);
 
-    const {lastExchange, editLastExchange, exchangeRate, getExchangeRate, sendNoti} = useHome()
-    const profit = Number(exchangeRate) - Number(lastExchange)
+  return (
+    <View style={styles.container}>
+      {!isNaN(profit) && <Text style={profitStyle(profit)}>{profit}</Text>}
+      <Text>Your last change: {lastExchange}</Text>
+      <Text>current: {exchangeRate}</Text>
+      <View style={styles.buttonContainer}>
+        <Button
+          title={"Change"}
+          onPress={() => editLastExchange(exchangeRate)}
+        />
+        <Button title={"Refresh"} onPress={() => getExchangeRate()} />
+        <Button title={"noti"} onPress={() => sendNoti()} />
+      </View>
+    </View>
+  );
+};
 
-    return (
-        <View style={styles.container}>
-            {!isNaN(profit) && <Text style={profitStyle(profit)}>{profit}</Text>}
-            <Text>Your last change: {lastExchange}</Text>
-            <Text>current: {exchangeRate}</Text>
-            <View style={styles.buttonContainer}>
-                <Button title={"Change"} onPress={() => editLastExchange(exchangeRate)}/>
-                <Button title={"Refresh"} onPress={() => getExchangeRate()}/>
-                <Button title={"noti"} onPress={() => sendNoti()}/>
-            </View>
-
-        </View>
-    )
-}
-
-export default Home
+export default Home;

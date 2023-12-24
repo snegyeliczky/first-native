@@ -19,27 +19,33 @@ const Index = () => {
     }, []);
 
     return (
-        <ClerkProvider publishableKey={Constants.expoConfig.extra.clerkPublishableKey}>
-            <SafeAreaView style={{flex: 1, backgroundColor: COLORS.lightWhite}}>
-                <Stack.Screen options={{
-                    headerStyle: {backgroundColor: COLORS.lightWhite},
-                    headerShadowVisible: false,
-                    headerLeft: () => (
-                        <ScreenHeaderBtn dimension={"60%"} iconUrl={icons.menu} handlePress={() => {
-                        }}/>
-                    ),
-                    headerTitle: "Bubek"
-                }
-                }/>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={{flex: 1, padding: SIZES.medium}}>
-                        <User/>
-                        <Home/>
-                    </View>
-                </ScrollView>
-            </SafeAreaView>
-        </ClerkProvider>
-    )
+      <ClerkProvider
+        publishableKey={Constants.expoConfig.extra.clerkPublishableKey}
+      >
+        <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
+          <Stack.Screen
+            options={{
+              headerStyle: { backgroundColor: COLORS.lightWhite },
+              headerShadowVisible: false,
+              headerLeft: () => (
+                <ScreenHeaderBtn
+                  dimension={"60%"}
+                  iconUrl={icons.menu}
+                  handlePress={() => {}}
+                />
+              ),
+              headerTitle: "Bubek",
+            }}
+          />
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{ flex: 1, padding: SIZES.medium }}>
+              <User />
+              <Home />
+            </View>
+          </ScrollView>
+        </SafeAreaView>
+      </ClerkProvider>
+    );
 }
 
 export default Index
